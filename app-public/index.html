@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Code It Proposal</title>
+    
+    <!-- JS/Logic -->
+    <script type="text/javascript">
+      // Base app state
+      var CodeIt = {
+        modes: {},
+        map: null,
+        coords: null,
+        
+        customLoc: "",
+        customLocValid: false
+      };
+    </script>
+    <script src="app-js/lces.js" charset="utf-8"></script>
+    <script src="app-js/view-modes.js" charset="utf-8"></script>
+    <script src="app-js/ajaj-process.js" charset="utf-8"></script>
+    <script src="app-js/main.js" charset="utf-8"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzZ8TXc90TtE-3qJHAxNfqjRWMZFBsK80&libraries=places"></script>
+    
+    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
+    <link rel="stylesheet" href="app-css/main.min.css">
+  </head>
+  <body>
+    <div class="main-wrap">
+      
+      <div class="active-view view view-main" data-view="main">
+        <header class="main-logo">
+          Code It<span>Proposal</span>
+        </header>
+        
+        <div class="centered-form entry-form">
+          <div class="row row-custom">
+            <div class="row-9">
+              <input type="text" id="custom-loc" class="ci-input" placeholder="Enter location...">
+            </div>
+            <div class="row-3">
+              <button class="ci-button ci-disabled" id="go-custom-btn">Go</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="row-12">
+              <button class="ci-button ci-disabled" id="go-gps-btn">Use GPS</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="view view-map" data-view="map">
+        <header class="map-head">
+          <button class="view-open-options" id="map-go-options">···</button>
+          <div class="logo-caption">
+            Code It
+          </div>
+        </header>
+        
+        <div class="main-map">
+          <!-- Put stuff here -->
+          <div id="code-it-map-object">
+            
+          </div>
+        </div>
+        
+        <button class="view-back-button vbb-bottom" id="map-go-back">
+          <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 15.875 15.875">
+            <path d="M7.425 4.86L4.452 8.042l3.183 2.973.362-.387L5.46 8.26h5.963v-.53H5.468L7.81 5.22z"/>
+          </svg>
+        </button>
+      </div>
+      
+      <div class="view view-options" data-view="options">
+        <button class="view-back-button" id="options-go-back">
+          <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 15.875 15.875">
+            <path d="M7.425 4.86L4.452 8.042l3.183 2.973.362-.387L5.46 8.26h5.963v-.53H5.468L7.81 5.22z"/>
+          </svg>
+        </button>
+        
+        <div class="centered-form options-form">
+          <header>
+            Choose a mode
+          </header>
+          <div class="button-options">
+            <button class="ci-button button-toggle button-toggle-active" data-btn-val="water_storage">
+              Water Storage
+            </button>
+            
+            <button class="ci-button button-toggle" data-btn-val="water_depth">
+              Water Depth
+            </button>
+            
+            <button class="ci-button button-toggle" data-btn-val="water_productivity">
+              Water Productivity
+            </button>
+            
+            <!-- <button class="ci-button button-toggle"data-btn-val="farmers">
+              Farmer Concentration
+            </button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

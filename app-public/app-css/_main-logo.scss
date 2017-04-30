@@ -1,0 +1,28 @@
+
+.main-logo {
+  position: absolute;
+  top: 80px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  margin: 0px auto;
+  width: 250px;
+  height: 150px;
+  
+  color: #C2C7CC;
+  font-family: "Open Sans", sans-serif;
+  font-size: 75px;
+  
+  span {
+    position: relative;
+    display: block;
+    top: -10px;
+    right: 15px;
+    
+    color: #99B3CC;
+    text-align: right;
+    font-style: italic;
+    font-size: 23px;
+    opacity: 0.75;
+  }
+}

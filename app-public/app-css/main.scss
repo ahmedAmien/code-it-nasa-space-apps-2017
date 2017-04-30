@@ -1,0 +1,205 @@
+// Author: Mike32
+// Responsible for: Refining and implementing design
+
+@import "rows";
+@import "main-logo";
+
+$bg: #151618;
+
+html, body {
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+.view {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: none;
+  
+  background: $bg;
+  
+  &.active-view {
+    display: block;
+  }
+}
+
+.centered-form {
+  position: absolute;
+  top: 0px;
+  right: 20px;
+  left: 20px;
+  bottom: 0px;
+  margin: auto;
+  height: 150px;
+  font-size: 0px;
+}
+
+.ci-button, .ci-input {
+  height: 60px;
+  padding: 0px 10px;
+  box-sizing: border-box;
+  margin: 0px 0px 20px 0px;
+  width: 100%;
+  
+  background: #2D2E33;
+  line-height: 40px;
+  border: 0px;
+  color: #CCCCCC;
+  font-size: 16px;
+  font-family: Arial;
+  
+  border-radius: 3px;
+  outline: 0px !important;
+}
+
+.ci-disabled {
+  opacity: 0.57;
+  pointer-events: none;
+}
+
+.ci-button {
+  text-transform: uppercase;
+  text-align: center;
+  background: #395180;
+  font-weight: bold;
+  
+  cursor: pointer;
+}
+
+.ci-input {
+  box-shadow: inset 0px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+// Map on downwards
+
+.map-head {
+  height: 60px;
+  width: 100%;
+  
+  background: $bg;
+  
+  .view-open-options {
+    display: inline-block;
+    vertical-align: top;
+    height: 60px;
+    width: 60px;
+    
+    border: 0px;
+    line-height: 60px;
+    background: rgba(0, 0, 0, 0.25);
+    color: #CCCCCC;
+    font-size: 35px;
+    text-align: center;
+  }
+  
+  .logo-caption {
+    display: inline-block;
+    vertical-align: top;
+    height: 60px;
+    padding: 0px 10px;
+    
+    line-height: 60px;
+    color: #99B3CC;
+    font-size: 35px;
+    font-family: "Open Sans", sans-serif;
+  }
+}
+
+.main-map {
+  position: absolute;
+  top: 60px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  
+  background: #D9D9D9;
+  
+  > div {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.view-back-button {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  padding: 0px;
+  
+  text-align: center;
+  line-height: 60px;
+  background: $bg;
+  border: 0px;
+  color: #CCCCCC;
+  font-size: 25px;
+  
+  &.vbb-bottom {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    z-index: 50;
+    
+    border-top-right-radius: 3px;
+  }
+  
+  svg {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    
+    transform: scale(0.75, 0.75);
+    
+    path {
+      fill: #fff;
+      stroke: none;
+      opacity: 0.75;
+    }
+  }
+}
+
+.view-map {
+  
+}
+
+.view-options {
+  .options-form {
+    height: 350px;
+    
+    header {
+      margin-bottom: 20px;
+      
+      text-align: center;
+      color: #C2C7CC;
+      font-family: "Open Sans", sans-serif;
+      font-size: 35px;
+    }
+    
+    .button-options {
+      button {
+        margin: 0px 0px 1px 0px;
+        border-radius: 0px;
+        background: #2D4166;
+        
+        &.button-toggle-active {
+          background: #395180;
+        }
+        
+        &:first-child {
+          border-top-left-radius: 3px;
+          border-top-right-radius: 3px;
+        }
+        
+        &:last-child {
+          border-bottom-left-radius: 3px;
+          border-bottom-right-radius: 3px;
+        }
+      }
+    }
+  }
+}
