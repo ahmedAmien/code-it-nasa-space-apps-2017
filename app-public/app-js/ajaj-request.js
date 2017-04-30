@@ -11,5 +11,7 @@ CodeIt.ajaj = {
         }
       }
     });
+    
+    req.send();
   }
 };

@@ -150,7 +150,7 @@ function main() {
   
   modesMainModel.setState("enabled", false);
   modesMainModel.setExclusiveState("enabled", true, 1);
-  CodeIt.modes.water_level.enabled = true;
+  CodeIt.modes.water_storage.component.enabled = true;
   
   // LoadScenario Implementation
   CodeIt.loadScenario = function(source) {
@@ -176,6 +176,8 @@ function main() {
     // Add Google Map
     var mainMap = jSh("#code-it-map-object");
     var map;
+    var youMarker;
+    var waterMarker;
     
     // API-Key: AIzaSyCzZ8TXc90TtE-3qJHAxNfqjRWMZFBsK80
     map = new google.maps.Map(mainMap, {
@@ -189,7 +191,17 @@ function main() {
       disableDefaultUI: true
     });
     
+    youMarker = new google.maps.Marker({
+      position: {
+        lat: coords.lat,
+        lng: coords.long
+      },
+      map: map,
+      title: "You"
+    });
+    
     CodeIt.map = map;
+    CodeIt.markers.youMarker = youMarker;
   };
   
   // Add Autocomplete

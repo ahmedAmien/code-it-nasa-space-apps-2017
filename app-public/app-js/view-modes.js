@@ -66,7 +66,31 @@ jSh.extendObj(CodeIt.modes, {
     }
   },
   
-  farmers: {
+  climate_change: {
+    dom: null,
+    
+    enable() {
+      
+    },
+    
+    cleanUp() {
+      
+    }
+  },
+  
+  wetness_drought: {
+    dom: null,
+    
+    enable() {
+      
+    },
+    
+    cleanUp() {
+      
+    }
+  },
+  
+  waterlevel_overtime: {
     dom: null,
     
     enable() {

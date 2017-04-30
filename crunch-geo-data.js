@@ -153,7 +153,10 @@ function indexData(sourceFile, valueMappings) {
       
       maxX,
       maxY
-    }
+    },
+    
+    rangeX,
+    rangeY
   };
 }
 

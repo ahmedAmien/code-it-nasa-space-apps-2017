@@ -11,6 +11,10 @@
       var CodeIt = {
         modes: {},
         map: null,
+        markers: {
+          you: null,
+          water: null
+        },
         coords: null,
         
         customLoc: "",
@@ -19,7 +23,7 @@
     </script>
     <script src="app-js/lces.js" charset="utf-8"></script>
     <script src="app-js/view-modes.js" charset="utf-8"></script>
-    <script src="app-js/ajaj-process.js" charset="utf-8"></script>
+    <script src="app-js/ajaj-request.js" charset="utf-8"></script>
     <script src="app-js/main.js" charset="utf-8"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzZ8TXc90TtE-3qJHAxNfqjRWMZFBsK80&libraries=places"></script>
     
@@ -96,6 +100,18 @@
             
             <button class="ci-button button-toggle" data-btn-val="water_productivity">
               Water Productivity
+            </button>
+            
+            <button class="ci-button ci-disabled button-toggle" data-btn-val="climate_change">
+              Climate Change
+            </button>
+            
+            <button class="ci-button ci-disabled button-toggle" data-btn-val="wetness_drought">
+              Wetness/Drought
+            </button>
+            
+            <button class="ci-button ci-disabled button-toggle" data-btn-val="waterlevel_overtime">
+              Waterlevel Over Time
             </button>
             
             <!-- <button class="ci-button button-toggle"data-btn-val="farmers">

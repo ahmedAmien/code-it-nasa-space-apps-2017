@@ -43,9 +43,10 @@ app.get("/", function(req, res) {
   res.send(html);
 });
 
-app.get(/\/ajaj\/([a-z_]+)\/(-?\d+(?:\.\d+))\/(-?\d+(?:\.\d+)?)\//, function(req, res) {
-  var params = req.baseUrl.match(/\/ajaj\/[a-z_]+\/(-?\d+(?:\.\d+))\/(-?\d+(?:\.\d+)?)\//);
+app.get(/\/+ajaj\/+([a-z_]+)\/+(-?\d+(?:\.\d+))\/+(-?\d+(?:\.\d+)?)\/*/, function(req, res) {
+  var params = req.originalUrl.match(/\/+ajaj\/+([a-z_]+)\/+(-?\d+(?:\.\d+))\/+(-?\d+(?:\.\d+)?)\/*/);
   
+  console.log(params, req.originalUrl);
   var lat  = parseFloat(params[2]);
   var long = parseFloat(params[3]);
   var map;
@@ -61,6 +62,8 @@ app.get(/\/ajaj\/([a-z_]+)\/(-?\d+(?:\.\d+))\/(-?\d+(?:\.\d+)?)\//, function(req
       map = mapper(productivity, lat, long);
       break;
   }
+  
+  res.send(map);
 });
 
 app.listen(3000, function() {
