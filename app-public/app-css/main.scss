@@ -13,16 +13,39 @@ html, body {
   height: 100%;
 }
 
+.main-wrap {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
 .view {
   position: absolute;
   width: 100%;
   height: 100%;
-  display: none;
+  display: block;
+  // display: none;
   
   background: $bg;
+  transition: transform 450ms cubic-bezier(.33,.21,.2,.95);
   
-  &.active-view {
-    display: block;
+  &.right-view,
+  &.left-view {
+    &.active-view {
+      // display: block;
+      transform: translate3d(0%, 0px, 0px);
+    }
+  }
+  
+  &.right-view {
+    transform: translate3d(100%, 0px, 0px);
+  }
+  
+  &.left-view {
+    transform: translate3d(-100%, 0px, 0px);
   }
 }
 
@@ -41,7 +64,7 @@ html, body {
   height: 60px;
   padding: 0px 10px;
   box-sizing: border-box;
-  margin: 0px 0px 10px 0px;
+  margin: 0px 0px 20px 0px;
   width: 100%;
   
   background: #2D2E33;
@@ -71,6 +94,33 @@ html, body {
 
 .ci-input {
   box-shadow: inset 0px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.ci-notify {
+  position: absolute;
+  bottom: 0px;
+  left: 100%;
+  right: 0px;
+  margin: 20px;
+  padding: 10px;
+  
+  border-radius: 3px;
+  background: #4264A6;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.35);
+  transition: left 0ms linear 250ms, transform 250ms ease-out, opacity 250ms ease-out;
+  transform: translate3d(0px, 10px, 0px);
+  opacity: 0;
+  
+  &.ci-visible {
+    transition: left 0ms linear 0ms, transform 250ms ease-out, opacity 250ms ease-out;
+    transform: translate3d(0px, 5px, 0px);
+    opacity: 1;
+    left: 0%;
+  }
+  
+  &.ci-notify-error {
+    background: #A63119;
+  }
 }
 
 // Map on downwards
@@ -168,8 +218,15 @@ html, body {
 }
 
 .view-options {
+  .view-back-button {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    transform: scale3d(-1, 1, 1);
+  }
+  
   .options-form {
-    height: 450px;
+    height: 350px;
     
     header {
       margin-bottom: 20px;

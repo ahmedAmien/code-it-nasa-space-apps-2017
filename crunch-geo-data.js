@@ -43,22 +43,24 @@ function indexData(sourceFile, valueMappings) {
     4,
     16,
     256,
-    // 65536
+    65536
   ];
 
   var resMaps = {};
   var oldRes;
+  var oldResSq;
 
   for (var res=0; res<resolutions.length; res++) {
-    var curRes = resolutions[res];
-    var curArr = resMaps[curRes] = [];
-    var parArr = resMaps[oldRes];
+    var curRes   = resolutions[res];
+    var curResSq = Math.sqrt(curRes);
+    var curArr   = resMaps[curRes] = [];
+    var parArr   = resMaps[oldRes];
     
     if (curRes === 4) {
-      for (var i=0; i<curRes; i++) {
+      for (var i=0; i<curResSq; i++) {
         var curRow = [];
         
-        for (var j=0; j<curRes; j++) {
+        for (var j=0; j<curResSq; j++) {
           curRow.push({
             factor: 0,
             child: []
@@ -68,21 +70,21 @@ function indexData(sourceFile, valueMappings) {
         curArr.push(curRow);
       }
     } else {
-      for (var i=0; i<curRes; i++) {
+      for (var i=0; i<curResSq; i++) {
         var curRow = [];
         
-        for (var j=0; j<curRes; j++) {
+        for (var j=0; j<curResSq; j++) {
           var cell = {
             factor: 0,
             child: []
           };
           
-          var parCellX = Math.floor(j / oldRes);
-          var parCellY = Math.floor(i / oldRes);
+          var parCellX = Math.floor(j / oldResSq);
+          var parCellY = Math.floor(i / oldResSq);
           var parCell  = parArr[parCellY][parCellX].child;
           
-          var localX = j - (parCellX * oldRes);
-          var localY = i - (parCellY * oldRes);
+          var localX = j - (parCellX * oldResSq);
+          var localY = i - (parCellY * oldResSq);
           
           if (!parCell[localY]) {
             parCell.push([]);
@@ -99,7 +101,8 @@ function indexData(sourceFile, valueMappings) {
       }
     }
     
-    oldRes = curRes;
+    oldRes   = curRes;
+    oldResSq = curResSq;
   }
 
   // Reindex matches
@@ -118,10 +121,12 @@ function indexData(sourceFile, valueMappings) {
     
     for (var j=resCount-1; j>-1; j--) {
       var res     = resolutions[j];
+      var resSq   = Math.sqrt(res);
       var resData = resMaps[res];
       
-      var x = Math.min(Math.floor((1 - ((val1 - minX) / rangeX)) * res), res - 1);
-      var y = Math.min(Math.floor((1 - ((val2 - minY) / rangeY)) * res), res - 1);
+      // var x = Math.min(Math.floor((1 - ((val1 - minX) / rangeX)) * res), res - 1);
+      var x = Math.min(Math.floor(((val1 - minX) / rangeX) * resSq), resSq - 1);
+      var y = Math.min(Math.floor((1 - ((val2 - minY) / rangeY)) * resSq), resSq - 1);
       
       var cell = resData[y][x];
       cell.factor += val3;

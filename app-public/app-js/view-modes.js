@@ -102,3 +102,23 @@ jSh.extendObj(CodeIt.modes, {
     }
   }
 });
+
+function NotifyModel(notifyElm) {
+  lces.types.component.call(this);
+  
+  this.setState("visible", false);
+  this.addStateListener("visible", function vcb(visible) {
+    if (visible) {
+      notifyElm.classList.add("ci-visible");
+    } else {
+      notifyElm.classList.removes("ci-visible");
+    }
+  });
+  
+}
+
+CodeIt.notifyModel =
+
+CodeIt.notify = function(error, msg) {
+  
+};
