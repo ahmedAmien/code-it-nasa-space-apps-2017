@@ -24,8 +24,9 @@
     <script src="app-js/lces.js" charset="utf-8"></script>
     <script src="app-js/view-modes.js" charset="utf-8"></script>
     <script src="app-js/ajaj-request.js" charset="utf-8"></script>
+    <script src="app-js/draw-response.js" charset="utf-8"></script>
     <script src="app-js/main.js" charset="utf-8"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzZ8TXc90TtE-3qJHAxNfqjRWMZFBsK80&libraries=places"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzZ8TXc90TtE-3qJHAxNfqjRWMZFBsK80&libraries=places,visualization"></script>
     
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet">
@@ -100,6 +101,10 @@
             
             <button class="ci-button button-toggle" data-btn-val="water_productivity">
               Water Productivity
+            </button>
+            
+            <button class="ci-button ci-disabled button-toggle" data-btn-val="water_thickness">
+              Water Thickness (cm)
             </button>
             
             <button class="ci-button ci-disabled button-toggle" data-btn-val="climate_change">

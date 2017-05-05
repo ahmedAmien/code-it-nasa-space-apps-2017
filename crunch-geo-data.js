@@ -165,4 +165,7 @@ function indexData(sourceFile, valueMappings) {
   };
 }
 
+// FREAKING REDUNDANT ONE INDICE X DIMENSION ARRAY
+// ...
+// Ugh...
 module.exports = indexData;

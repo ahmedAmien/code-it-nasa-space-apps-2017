@@ -30,7 +30,8 @@ html, body {
   // display: none;
   
   background: $bg;
-  transition: transform 450ms cubic-bezier(.33,.21,.2,.95);
+  // transition: transform 450ms cubic-bezier(.33,.21,.2,.95);
+  transition: transform 450ms cubic-bezier(.14,.25,.03,.96);
   
   &.right-view,
   &.left-view {
@@ -64,7 +65,7 @@ html, body {
   height: 60px;
   padding: 0px 10px;
   box-sizing: border-box;
-  margin: 0px 0px 20px 0px;
+  margin: 0px 0px 10px 0px;
   width: 100%;
   
   background: #2D2E33;
@@ -99,8 +100,8 @@ html, body {
 .ci-notify {
   position: absolute;
   bottom: 0px;
-  left: 100%;
-  right: 0px;
+  right: 300%;
+  // right: 0px;
   margin: 20px;
   padding: 10px;
   
@@ -115,7 +116,7 @@ html, body {
     transition: left 0ms linear 0ms, transform 250ms ease-out, opacity 250ms ease-out;
     transform: translate3d(0px, 5px, 0px);
     opacity: 1;
-    left: 0%;
+    right: 0%;
   }
   
   &.ci-notify-error {

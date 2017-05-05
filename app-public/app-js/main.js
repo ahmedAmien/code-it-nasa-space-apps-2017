@@ -136,7 +136,7 @@ function main() {
   modes.forEach(modeBtn => {
     var modeName = modeBtn.getAttribute("data-btn-val");
     var modeData = CodeIt.modes[modeName];
-    new ViewMode(modeBtn, modeData, modesMainModel);
+    new ViewMode(modeBtn, modeData, modeName, modesMainModel);
     
     modeBtn.on("click", function() {
       modeData.component.enabled = true;
@@ -185,7 +185,7 @@ function main() {
         lat: coords.lat,
         lng: coords.long
       },
-      zoom: 16,
+      zoom: 8,
       streetViewControl: false,
       mapTypeId: google.maps.MapTypeId.TERRAIN,
       disableDefaultUI: true
